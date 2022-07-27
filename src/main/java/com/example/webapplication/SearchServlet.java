@@ -8,18 +8,26 @@ import java.io.PrintWriter;
 
 @WebServlet(name="SearchServlet", urlPatterns = "/search")
 public class SearchServlet extends HttpServlet {
+    public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String date = request.getParameter("date");
+        String source = request.getParameter("source");
+        String destination = request.getParameter("destination");
+        int people = Integer.parseInt(request.getParameter("people"));
+
+        PrintWriter out = new PrintWriter(response.getWriter());
+        response.setContentType("text/plain");
+        out.println(destination);
+    }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("doGet Request Made");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("doPost Request Made");
+        /*
+        When a post method is called, the response sent back to web server is  in HTML
+         */
         PrintWriter out = new PrintWriter(response.getWriter());
-
-        // When a post method is called, the response back to web server is HTML.
         response.setContentType("text/html");
-
-        // basic html sent back to web page
         out.println("<h1>POST Method!</h1>");
         out.println("<p>Post Method Requested</p>");
     }
