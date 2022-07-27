@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Airline Booking System</h1>
-<form action="search">
+<form action="search" method="POST">
     <div>
         <label for="date-of-travel">Date: </label><br>
         <input id="date-of-travel" type="date" min="2022-07-27" name="date">

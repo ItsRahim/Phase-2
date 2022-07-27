@@ -18,10 +18,13 @@ public class SearchServlet extends HttpServlet {
         response.setContentType("text/plain");
         out.println(destination);
     }
+
+    // GET Request is to retrieve data from server
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("doGet Request Made");
     }
 
+    // POST Request is to send data to server
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /*
         When a post method is called, the response sent back to web server is  in HTML
