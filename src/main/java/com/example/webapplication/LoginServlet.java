@@ -9,21 +9,27 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // redirecting user to searchFlight page
         response.sendRedirect("searchFlight.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        /*
+        Getting username and password entered by user and validating login
+         */
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
         if(username.equals("rahim") && password.equals("password1")) {
-            HttpSession  session = request.getSession(true);
+            HttpSession session = request.getSession(true);
             session.setAttribute("uName", username);
             session.setAttribute("uPass", password);
+
+            // once login is valid, a GET request is sent to change pages
             doGet(request,response);
         }else {
             response.sendRedirect("index.jsp");
-            HttpSession  session = request.getSession(true);
+            HttpSession session = request.getSession(true);
             session.setAttribute("errorMessage", "Login Failed ");
         }
     }
