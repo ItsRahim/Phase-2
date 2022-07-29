@@ -21,7 +21,9 @@ public class SearchServlet extends HttpServlet {
 
     // GET Request is to retrieve data from server
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("doGet Request Made");
+        /*
+        Connect to Hibernate JPA and call method to find flight details based on information above
+         */
     }
 
     // POST Request is to send data to server
