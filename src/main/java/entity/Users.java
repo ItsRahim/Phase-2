@@ -3,7 +3,8 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
-@NamedQuery(name = "Users.byEmailPassword", query = "SELECT email_address, password FROM Users WHERE email_address = ?")
+// Essentially a Stored Procedure
+@NamedQuery(name = "Users.byEmailPassword", query = "SELECT u FROM Users u WHERE u.emailAddress = ?1 AND u.password = ?1")
 public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
