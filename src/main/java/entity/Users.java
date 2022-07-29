@@ -3,6 +3,7 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
+@NamedQuery(name = "Users.byEmailPassword", query = "SELECT email_address, password FROM Users WHERE email_address = ?")
 public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
