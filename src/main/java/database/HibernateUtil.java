@@ -11,7 +11,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 
     public static boolean checkLogin(String email, String pass) {
-        //TODO: Implement a login validation
+        //TODO: Validate login
         try {
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(entity.Users.class);
@@ -22,7 +22,7 @@ public class HibernateUtil {
             Session session = factory.openSession();
             Transaction transaction = session.beginTransaction();
 
-            Query query = session.createQuery("FROM users WHERE email_address =: email AND password =: pass");
+            Query query = session.createQuery("FROM entity.Users WHERE emailAddress =: email AND password =: pass");
             query.setParameter("email", email);
             query.setParameter("pass", pass);
 
