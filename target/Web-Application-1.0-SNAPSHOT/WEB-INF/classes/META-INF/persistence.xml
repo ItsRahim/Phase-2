@@ -5,5 +5,15 @@
              version="2.2">
     <persistence-unit name="default">
 
+        <class>entity.Customer</class>
+        <class>entity.Flights</class>
+        <class>entity.Users</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/Mindweaver"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="password"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
     </persistence-unit>
 </persistence>

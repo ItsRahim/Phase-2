@@ -20,11 +20,11 @@ public class Flights {
     @Basic
     @Column(name = "price", nullable = false, precision = 0)
     private int price;
-    @Basic
+
     @Column(name = "customer_id", nullable = false)
     private int customerId;
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false, insertable=false, updatable=false)
     private Customer customerByCustomerId;
 
     public int getFlightNumber() {

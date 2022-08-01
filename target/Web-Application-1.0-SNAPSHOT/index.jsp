@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Phase 2 Project</title>
-  <link rel="stylesheet" href="login-page.css">
+  <link rel="stylesheet" href="stylesheets/login-page.css">
 </head>
 <body>
 <main id="main-holder">
