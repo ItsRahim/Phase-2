@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 // Essentially a Stored Procedure
-@NamedQuery(name = "Users.byEmailPassword", query = "SELECT u FROM Users u WHERE u.emailAddress = :email AND u.password = :pass")
+@NamedQuery(name = "VALIDATE_LOGIN_BY_EMAIL_PASSWORD", query = "SELECT u FROM Users u WHERE u.emailAddress = :email AND u.password = :pass")
 public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
