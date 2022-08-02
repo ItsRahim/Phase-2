@@ -7,11 +7,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import java.util.List;
 
 public class HibernateUtil {
 
     public static boolean checkLogin(String email, String pass) {
-        //TODO: Validate login
+        Transaction transaction = null;
+        Session session = null;
+        List user = null;
         try {
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(entity.Users.class);
@@ -19,18 +22,25 @@ public class HibernateUtil {
                     .applySettings(configuration.getProperties());
             SessionFactory factory = configuration.buildSessionFactory(builder.build());
 
-            Session session = factory.openSession();
-            Transaction transaction = session.beginTransaction();
+            session = factory.openSession();
+            transaction = session.beginTransaction();
 
-            Query query = session.createQuery("FROM entity.Users WHERE emailAddress =: email AND password =: pass");
-            query.setParameter("email", email);
-            query.setParameter("pass", pass);
+            user = session.createQuery("FROM entity.Users WHERE emailAddress =: email AND password =: pass")
+                    .setParameter("email", email)
+                    .setParameter("pass", pass)
+                    .list();
 
             transaction.commit();
             session.close();
         } catch (HibernateException e) {
-            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+                e.printStackTrace();
+            }
+        } finally {
+            assert session != null;
+            session.close();
         }
-        return true;
+        return !user.isEmpty();
     }
 }
