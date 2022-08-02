@@ -14,7 +14,7 @@ public class HibernateUtil {
         Session session = null;
         List user = null;
         try {
-            Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+            Configuration configuration = new Configuration().configure("META-INF/hibernate.cfg.xml");
             configuration.addAnnotatedClass(entity.Users.class);
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties());
