@@ -1,6 +1,5 @@
 package database;
 
-import org.hibernate.query.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +9,6 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 public class HibernateUtil {
-
     public static boolean checkLogin(String email, String pass) {
         Transaction transaction = null;
         Session session = null;
