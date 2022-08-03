@@ -1,7 +1,7 @@
 package com.example.webapplication;
 
 import database.HibernateUtil;
-import database.dbConnector;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,7 +11,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        response.sendRedirect("searchFlight.jsp");
     }
 
     @Override
@@ -26,8 +26,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("uName", username);
             session.setAttribute("uPass", password);
 
-            // once login is valid, a request is sent to change pages
-            response.sendRedirect("searchFlight.jsp");
+            doGet(request, response);
         }else {
             request.setAttribute("error", "invalid login");
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
