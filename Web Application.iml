@@ -32,6 +32,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
+          <unit-entry name="META-INF:hibernate.cfg.xml" value="ef5fa006-7e88-4111-bab5-97a531df25b5" />
           <unit-entry name="hibernate.cfg.xml" value="25c24df7-ac8d-48f2-9c06-0a261ae6e67c" />
         </datasource-map>
         <naming-strategy-map />
