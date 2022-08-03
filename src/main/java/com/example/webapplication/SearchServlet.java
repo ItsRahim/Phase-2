@@ -12,7 +12,6 @@ public class SearchServlet extends HttpServlet {
         /*
         Connect to Hibernate JPA and call method to find flight details based on information above
          */
-
     }
 
     // POST Request is to send data to server

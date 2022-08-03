@@ -1,7 +1,6 @@
 package com.example.webapplication;
 
 import database.HibernateUtil;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -22,9 +21,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password").trim();
 
         if(HibernateUtil.checkLogin(username, password)) {
+
+            //TODO Implement Cookies and Sessions
             HttpSession session = request.getSession(true);
             session.setAttribute("uName", username);
             session.setAttribute("uPass", password);
+
             doGet(request, response);
         }else {
             request.setAttribute("error", "invalid login");
