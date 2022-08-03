@@ -15,27 +15,27 @@ public class SearchServlet extends HttpServlet {
         /*
         Connect to Hibernate JPA and call method to find flight details based on information above
          */
+
+    }
+
+    // POST Request is to send data to server
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String date = request.getParameter("date");
         String source = request.getParameter("source");
         String destination = request.getParameter("destination");
         String people = request.getParameter("people");
 
-        List<String> formInfo = new ArrayList<>(Arrays.asList(date, source, destination, people));
-
-        if(checkFormValidity(formInfo)) {
+        if(checkFormValidity(date, source, destination, people)) {
             System.out.println("Valid Form");
-            getServletContext().getRequestDispatcher("/SearchFlight.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/searchFlight.jsp").forward(request, response);
         } else {
+            System.out.println("Invalid Form");
             response.sendRedirect("searchFlight.jsp");
         }
     }
 
-    // POST Request is to send data to server
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    private boolean checkFormValidity(String date, String source, String destination, String people) {
+        return date.length() != 0 && source.length() != 0 && destination.length() != 0 && people.length() != 0;
     }
 
-    private boolean checkFormValidity(List<String> formInfo) {
-        return formInfo.size() == 4;
-    }
 }

@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.sendRedirect("searchFlight.jsp");
     }
 
@@ -25,7 +25,6 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("uName", username);
             session.setAttribute("uPass", password);
-
             doGet(request, response);
         }else {
             request.setAttribute("error", "invalid login");
