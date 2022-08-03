@@ -24,10 +24,12 @@ public class SearchServlet extends HttpServlet {
         String source = request.getParameter("source");
         String destination = request.getParameter("destination");
         String people = request.getParameter("people");
-
+        System.out.println("working");
+    }
+/*
         if(checkFormValidity(date, source, destination, people)) {
+            //TODO Query to find flights and output them onto another page
             System.out.println("Valid Form");
-            getServletContext().getRequestDispatcher("/searchFlight.jsp").forward(request, response);
         } else {
             System.out.println("Invalid Form");
             response.sendRedirect("searchFlight.jsp");
@@ -36,6 +38,6 @@ public class SearchServlet extends HttpServlet {
 
     private boolean checkFormValidity(String date, String source, String destination, String people) {
         return date.length() != 0 && source.length() != 0 && destination.length() != 0 && people.length() != 0;
-    }
+    }*/
 
 }
