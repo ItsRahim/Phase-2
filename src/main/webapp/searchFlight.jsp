@@ -7,7 +7,7 @@
 </head>
 <body onload="setMinDate()">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="scripts/search_flight_scripts.js"></script>
+<script src="scripts/search_flight.js"></script>
 <h1>Airline Booking System</h1>
 <div class="container">
     <form id=search-form action="search" method="POST">
