@@ -34,4 +34,18 @@ public class SearchServlet extends HttpServlet {
         return date.length() != 0 && source.length() != 0 && destination.length() != 0 && people.length() != 0;
     }
 
+    //TODO Implement Cookies
+    /*
+    Useru=new User();
+    HttpSession session=request.getSession(false);
+    if(session!=null){
+        Useru=(User)session.getAttribute("user");
+        u.setEmail(request.getParameter("email"));
+        u.setAge(Integer.parseInt(request.getParameter("age")));
+        session.setAttribute("user",u);
+        session.invalidate() --logout
+        response.sendRedirect("three.html");
+    }
+     */
+
 }

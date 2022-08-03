@@ -21,8 +21,6 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password").trim();
 
         if(HibernateUtil.checkLogin(username, password)) {
-
-            //TODO Implement Cookies and Sessions
             HttpSession session = request.getSession(true);
             session.setAttribute("uName", username);
             session.setAttribute("uPass", password);
@@ -33,4 +31,13 @@ public class LoginServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }
+
+    //TODO Implement Cookies and Sessions
+            /*User u=new User();
+            HttpSession session=request.getSession();
+            u.setFname(request.getParameter("fname"));
+            u.setLname(request.getParameter("lname"));
+            session.setAttribute("user",u);
+            response.sendRedirect("two.html");
+            */
 }
